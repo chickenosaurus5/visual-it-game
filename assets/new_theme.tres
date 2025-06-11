@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://rng1buwub48f"]
+
+[ext_resource type="FontFile" uid="uid://brc156rxvbfw4" path="res://assets/fonts/SpecialGothicExpandedOne-Regular.ttf" id="1_kxa5r"]
+[ext_resource type="Texture2D" uid="uid://b3dylbr0avlws" path="res://assets/temp-test-menu/Rectangle 65.png" id="2_6fscb"]
+[ext_resource type="Texture2D" uid="uid://c08ia3rfl7m53" path="res://assets/temp-test-menu/Rectangle 68.png" id="3_6fscb"]
+[ext_resource type="Texture2D" uid="uid://d1wlhfflbmen7" path="res://assets/temp-test-menu/Rectangle 66.png" id="4_4qft3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4qft3"]
+texture = ExtResource("2_6fscb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6fscb"]
+texture = ExtResource("3_6fscb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ckgxr"]
+texture = ExtResource("4_4qft3")
+
+[resource]
+Label/fonts/font = ExtResource("1_kxa5r")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_4qft3")
+bcont/base_type = &"PanelContainer"
+bcont/styles/panel = SubResource("StyleBoxTexture_6fscb")
+sidebarTexture/base_type = &"PanelContainer"
+sidebarTexture/styles/panel = SubResource("StyleBoxTexture_ckgxr")

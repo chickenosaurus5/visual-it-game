@@ -1,0 +1,386 @@
+[gd_scene load_steps=19 format=3 uid="uid://dfe4gpbchdafk"]
+
+[ext_resource type="Theme" uid="uid://rng1buwub48f" path="res://assets/new_theme.tres" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://bpb82vxjylegb" path="res://assets/temp-test-menu/logo (3).png" id="2_ca42v"]
+[ext_resource type="Texture2D" uid="uid://d1oaxtg7wp6ux" path="res://assets/temp-test-menu/icons8-return-32 1.png" id="2_dinhu"]
+[ext_resource type="Texture2D" uid="uid://by58lk7bgrcid" path="res://assets/temp-test-menu/Rectangle 83.png" id="2_ir15t"]
+[ext_resource type="Texture2D" uid="uid://jcqbnv3nkg03" path="res://assets/temp-test-menu/icons8-cog-50 1.png" id="2_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://58gghvv5bqyc" path="res://assets/temp-test-menu/icons8-clock-64 1.png" id="2_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://c05yy1ydb7umg" path="res://icon.svg" id="2_yqjtg"]
+[ext_resource type="FontFile" uid="uid://oxnlpgwu7m3e" path="res://assets/fonts/Inter-VariableFont_opsz,wght.ttf" id="3_ca42v"]
+[ext_resource type="Texture2D" uid="uid://d1x2vrnwddtgi" path="res://assets/temp-test-menu/icons8-home-128 1.png" id="3_iywne"]
+[ext_resource type="Texture2D" uid="uid://bn5ev1fmwqqa7" path="res://assets/temp-test-menu/icons8-return-32 2.png" id="3_kvuet"]
+[ext_resource type="Script" uid="uid://b6w4ornrk8fqi" path="res://scripts/object.gd" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://clnk7eahvat2h" path="res://assets/temp-test-menu/Polygon 6.png" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://u6hvuukdavaj" path="res://assets/temp-test-menu/icons8-magnifying-glass-128 (1) 3.png" id="4_rysoc"]
+[ext_resource type="Texture2D" uid="uid://dwx7kgpeokvi7" path="res://assets/temp-test-menu/icons8-3d-rotate-80 1.png" id="4_trtic"]
+[ext_resource type="Texture2D" uid="uid://5pxuaflo8m8c" path="res://assets/temp-test-menu/icons8-rubber-50 1.png" id="5_ir15t"]
+[ext_resource type="Texture2D" uid="uid://b2wpwrqhobb5n" path="res://assets/temp-test-menu/icons8-drag-80 1.png" id="6_ca42v"]
+
+[sub_resource type="GDScript" id="GDScript_p57ef"]
+script/source = "extends Button
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(129, 128)
+
+[node name="game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 544)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="sidebar2" type="PanelContainer" parent="CanvasLayer"]
+z_index = -2
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 107.0
+offset_top = 91.0
+offset_right = 483.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = ExtResource("1_uwrxv")
+theme_type_variation = &"sidebarTexture"
+
+[node name="topMenu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme = ExtResource("1_uwrxv")
+
+[node name="mainHbox" type="HBoxContainer" parent="CanvasLayer/topMenu"]
+layout_mode = 2
+alignment = 2
+
+[node name="rightHbox" type="HBoxContainer" parent="CanvasLayer/topMenu/mainHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="undoZCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/undoZCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_right = 19
+
+[node name="undoZicon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/undoZCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("2_ca42v")
+
+[node name="searchbarCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = 5
+
+[node name="searchbar" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_ir15t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 364.0
+offset_bottom = 41.0
+theme_override_constants/separation = 100
+alignment = 2
+
+[node name="undoZCont2" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer/undoZCont2"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="searchText" type="Label" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer/undoZCont2/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.521141, 0.521141, 0.521141, 1)
+theme_override_fonts/font = ExtResource("3_ca42v")
+theme_override_font_sizes/font_size = 15
+text = "Search for Objects here"
+
+[node name="searchIconCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer/searchIconCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 19
+theme_override_constants/margin_right = 19
+
+[node name="searchIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer/searchIconCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("4_rysoc")
+
+[node name="leftHbox" type="HBoxContainer" parent="CanvasLayer/topMenu/mainHbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="undoZCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/undoZCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 19
+theme_override_constants/margin_right = 19
+
+[node name="undoZicon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/undoZCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("2_dinhu")
+
+[node name="undoYCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/undoYCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 19
+theme_override_constants/margin_right = 19
+
+[node name="undoYicon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/undoYCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("3_kvuet")
+
+[node name="rotationICon" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/rotationICon"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 19
+theme_override_constants/margin_right = 19
+
+[node name="rotateIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/rotationICon/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("4_trtic")
+
+[node name="deleteCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/deleteCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 19
+theme_override_constants/margin_right = 19
+
+[node name="deleteIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/deleteCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("5_ir15t")
+
+[node name="MoveCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/MoveCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 19
+theme_override_constants/margin_right = 19
+
+[node name="moveIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/MoveCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("6_ca42v")
+
+[node name="pauseTimerCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/pauseTimerCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 19
+theme_override_constants/margin_right = 19
+
+[node name="clockIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/pauseTimerCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("2_u5sy4")
+
+[node name="timeMultiplierCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/timeMultiplierCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_right = 19
+
+[node name="timeMultiplier" type="Label" parent="CanvasLayer/topMenu/mainHbox/leftHbox/timeMultiplierCont/MarginContainer"]
+layout_mode = 2
+text = "1.0x"
+
+[node name="sliderCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/sliderCont"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_right = 150
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/topMenu/mainHbox/leftHbox/sliderCont"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="pauseCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/pauseCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 19
+theme_override_constants/margin_right = 19
+
+[node name="pauseIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/pauseCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("4_lbhrr")
+
+[node name="Button" type="Button" parent="CanvasLayer/topMenu/mainHbox/leftHbox/pauseCont/MarginContainer/pauseIcon"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = SubResource("GDScript_p57ef")
+
+[node name="settingsCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+theme_type_variation = &"bcont"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/settingsCont"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 12
+
+[node name="settingsIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/settingsCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("2_lbhrr")
+
+[node name="Button" type="Button" parent="CanvasLayer/topMenu/mainHbox/leftHbox/settingsCont/MarginContainer/settingsIcon"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.939
+offset_bottom = 0.0129986
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = SubResource("GDScript_p57ef")
+
+[node name="homeCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_uwrxv")
+theme_type_variation = &"bcont"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/homeCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+
+[node name="homeIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/homeCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("3_iywne")
+
+[node name="sidebar1" type="PanelContainer" parent="CanvasLayer"]
+z_index = -1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 91.0
+offset_right = 107.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = ExtResource("1_uwrxv")
+
+[node name="object" type="Sprite2D" parent="."]
+position = Vector2(1021, 309)
+texture = ExtResource("2_yqjtg")
+script = ExtResource("3_lnu2h")
+
+[node name="Button" type="Button" parent="object"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RigidBody2D" type="RigidBody2D" parent="object"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="object/RigidBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[connection signal="button_down" from="object/Button" to="object" method="_on_button_button_down"]
+[connection signal="button_up" from="object/Button" to="object" method="_on_button_button_up"]
