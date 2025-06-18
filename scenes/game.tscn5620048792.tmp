@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfe4gpbchdafk"]
+
+[ext_resource type="Script" uid="uid://cc7g0by8sjadx" path="res://scripts/single_object.gd" id="1_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://c05yy1ydb7umg" path="res://icon.svg" id="2_lnu2h"]
+[ext_resource type="Script" uid="uid://clde542pcqbk8" path="res://scripts/camera_2d.gd" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://ded1fqhi81r0k" path="res://scenes/planet.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://df3f700mt6qla" path="res://scenes/UI.tscn" id="17_rysoc"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_yqjtg")
+tex = ExtResource("2_lnu2h")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(963, 534)
+script = ExtResource("3_lbhrr")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1034, 117)
+
+[node name="planet" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(743, 586)
+
+[node name="mainUi" parent="." instance=ExtResource("17_rysoc")]

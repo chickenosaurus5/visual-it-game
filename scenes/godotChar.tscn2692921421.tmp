@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://yl8vew2ugmco"]
+
+[ext_resource type="Script" uid="uid://dwtjiepyirixy" path="res://scripts/godot_char.gd" id="1_ce2u2"]
+[ext_resource type="Texture2D" uid="uid://c05yy1ydb7umg" path="res://icon.svg" id="1_pr718"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya8hw"]
+size = Vector2(129, 128)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ce2u2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1021.5, 309)
+shape = SubResource("RectangleShape2D_ya8hw")
+
+[node name="object" type="Sprite2D" parent="."]
+position = Vector2(1021, 309)
+texture = ExtResource("1_pr718")
+
+[node name="Button" type="Button" parent="object"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_down" from="object/Button" to="object" method="_on_button_button_down"]
+[connection signal="button_up" from="object/Button" to="object" method="_on_button_button_up"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsiqv6k3q8i12"]
+
+[ext_resource type="Texture2D" uid="uid://cyjdd81dj5mle" path="res://assets/2560023939.png" id="1_ngp14"]
+[ext_resource type="Script" uid="uid://nk7vcnlfjxxl" path="res://scripts/planet_drag.gd" id="2_scgeu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4u4e"]
+atlas = ExtResource("1_ngp14")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_scgeu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4u4e")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="planet_item" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.719997, 0.719997)
+sprite_frames = SubResource("SpriteFrames_scgeu")
+animation = &"new_animation"
+frame_progress = 0.734641
+script = ExtResource("2_scgeu")
+
+[node name="Button" type="Button" parent="AnimatedSprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[connection signal="pressed" from="AnimatedSprite2D/Button" to="AnimatedSprite2D" method="_on_button_pressed"]

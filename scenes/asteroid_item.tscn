@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b77q2s0e7mkmi"]
+
+[ext_resource type="Texture2D" uid="uid://cwc6jwexkedat" path="res://assets/asteroid3.png" id="1_t40kj"]
+[ext_resource type="Script" uid="uid://bqwkr3bfyjr7y" path="res://scripts/draggingItem.gd" id="2_m5b2q"]
+
+[node name="asteroidItem" type="Node2D"]
+
+[node name="asteroidTex" type="Sprite2D" parent="."]
+position = Vector2(2.27374e-13, 0)
+scale = Vector2(0.0571116, 0.0584258)
+texture = ExtResource("1_t40kj")
+script = ExtResource("2_m5b2q")
+
+[node name="Button" type="Button" parent="asteroidTex"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.357
+anchor_top = 0.274
+anchor_right = 0.656
+anchor_bottom = 0.749
+offset_left = -960.405
+offset_top = -540.265
+offset_right = -959.485
+offset_bottom = -540.265
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="asteroidTex/Button" to="asteroidTex" method="_on_button_pressed"]

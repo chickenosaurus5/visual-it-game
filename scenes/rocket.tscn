@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dead23nt0tlu8"]
+
+[ext_resource type="Script" uid="uid://bw7iheq4uvipv" path="res://scripts/rocket_controler.gd" id="1_dkv7l"]
+[ext_resource type="Texture2D" uid="uid://demtvbnf14fx4" path="res://assets/rocket12.png" id="2_agf72"]
+[ext_resource type="Script" uid="uid://cov06bbdukfkc" path="res://scripts/rocket_camera.gd" id="3_agf72"]
+[ext_resource type="Script" uid="uid://bts3hnwipoho0" path="res://scripts/directionVector.gd" id="4_y2y7n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkv7l"]
+size = Vector2(140, 300)
+
+[node name="rocket" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+script = ExtResource("1_dkv7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(4, -85)
+shape = SubResource("RectangleShape2D_dkv7l")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(20, -106)
+scale = Vector2(0.083496, 0.083496)
+texture = ExtResource("2_agf72")
+
+[node name="rocketCamera" type="Camera2D" parent="RigidBody2D"]
+script = ExtResource("3_agf72")
+
+[node name="Node2D" type="Node2D" parent="RigidBody2D"]
+
+[node name="Line2D" type="Line2D" parent="RigidBody2D"]
+script = ExtResource("4_y2y7n")
