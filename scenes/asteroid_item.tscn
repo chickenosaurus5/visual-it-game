@@ -22,6 +22,7 @@ offset_left = -960.405
 offset_top = -540.265
 offset_right = -959.485
 offset_bottom = -540.265
+focus_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="asteroidTex/Button" to="asteroidTex" method="_on_button_pressed"]

@@ -34,5 +34,6 @@ offset_left = -49.0
 offset_top = -50.0
 offset_right = 50.0
 offset_bottom = 50.0
+focus_mode = 0
 
 [connection signal="pressed" from="sunIcon/Button" to="sunIcon" method="_on_button_pressed"]

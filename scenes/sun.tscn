@@ -1,6 +1,7 @@
-[gd_scene load_steps=65 format=3 uid="uid://k8ihbh8roai5"]
+[gd_scene load_steps=67 format=3 uid="uid://k8ihbh8roai5"]
 
 [ext_resource type="Texture2D" uid="uid://cinpgnd1vyreq" path="res://assets/star.png" id="1_cojbh"]
+[ext_resource type="Script" uid="uid://dnvrrouer25uo" path="res://scenes/colision_detector_sun.gd" id="2_fdjia"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdjia"]
 radius = 21721.5
@@ -436,6 +437,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtvjq"]
+radius = 25124.6
+
 [node name="sun" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
@@ -462,3 +466,14 @@ sprite_frames = SubResource("SpriteFrames_vtvjq")
 animation = &"new_animation"
 autoplay = "new_animation"
 frame_progress = 0.494752
+
+[node name="colisionDetector" type="Area2D" parent="."]
+script = ExtResource("2_fdjia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colisionDetector"]
+shape = SubResource("CircleShape2D_vtvjq")
+
+[node name="restarter" type="Timer" parent="."]
+
+[connection signal="body_entered" from="colisionDetector" to="colisionDetector" method="_on_body_entered"]
+[connection signal="timeout" from="restarter" to="colisionDetector" method="_on_restarter_timeout"]
