@@ -1,7 +1,7 @@
 [gd_scene load_steps=67 format=3 uid="uid://k8ihbh8roai5"]
 
 [ext_resource type="Texture2D" uid="uid://cinpgnd1vyreq" path="res://assets/star.png" id="1_cojbh"]
-[ext_resource type="Script" uid="uid://dnvrrouer25uo" path="res://scenes/colision_detector_sun.gd" id="2_fdjia"]
+[ext_resource type="Script" uid="uid://dnvrrouer25uo" path="res://scripts/colision_detector_sun.gd" id="2_fdjia"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdjia"]
 radius = 21721.5

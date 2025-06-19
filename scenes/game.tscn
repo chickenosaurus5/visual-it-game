@@ -70,6 +70,7 @@ theme = ExtResource("7_0tnpc")
 theme_type_variation = &"sidebarTexture"
 
 [node name="planets" type="PanelContainer" parent="CanvasLayer/sidebar2"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 0
 
@@ -99,9 +100,8 @@ theme_override_constants/margin_bottom = 50
 
 [node name="title" type="Label" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1/MarginContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("9_37s47")
 theme_override_font_sizes/font_size = 20
-text = "რაკეტის ფიზიკა"
+text = "Rocket Physics"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1"]
 layout_mode = 2
@@ -116,7 +116,7 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_37s47")
 theme_override_font_sizes/font_size = 20
-text = "რაკეტის სიმძლავრე"
+text = "Rocket power"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1/VBoxContainer"]
 layout_mode = 2
@@ -152,7 +152,7 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_37s47")
 theme_override_font_sizes/font_size = 20
-text = "რაკეტის წონა(კგ)"
+text = "Rocket weight(kg)"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1/VBoxContainer"]
 layout_mode = 2
@@ -192,7 +192,9 @@ theme_override_constants/margin_bottom = 5
 
 [node name="rocketVectors" type="Label" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1/VBoxContainer/MarginContainer3"]
 layout_mode = 2
-text = "რაკეტის ვექტორები"
+theme_override_fonts/font = ExtResource("9_37s47")
+theme_override_font_sizes/font_size = 20
+text = "Rocket vectors"
 
 [node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1/VBoxContainer"]
 layout_mode = 2
@@ -208,7 +210,8 @@ focus_mode = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1/VBoxContainer/MarginContainer4/velocityCont"]
 layout_mode = 2
-text = "აჩქარების ვექტორი"
+theme_override_fonts/font = ExtResource("9_37s47")
+text = "acceleration vector"
 
 [node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1/VBoxContainer"]
 layout_mode = 2
@@ -224,7 +227,8 @@ focus_mode = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1/VBoxContainer/MarginContainer5/trajectoryCont"]
 layout_mode = 2
-text = "მომავალი ტრაექტორია"
+theme_override_fonts/font = ExtResource("9_37s47")
+text = "future trajectory"
 
 [node name="MarginContainer6" type="MarginContainer" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1/VBoxContainer"]
 layout_mode = 2
@@ -236,14 +240,16 @@ layout_mode = 2
 
 [node name="rocketSpeedLabel" type="Label" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1/VBoxContainer/MarginContainer6/HBoxContainer4"]
 layout_mode = 2
-text = "რაკეტის სიჩქარე:"
+theme_override_fonts/font = ExtResource("9_37s47")
+text = "Rocket speed"
 
 [node name="rocketSpeed" type="Label" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1/VBoxContainer/MarginContainer6/HBoxContainer4"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/sidebar2/rocketPhysicsCont/VBoxContainer1/VBoxContainer/MarginContainer6/HBoxContainer4"]
 layout_mode = 2
-text = "მ/წმ"
+theme_override_fonts/font = ExtResource("9_37s47")
+text = "m/s"
 
 [node name="topMenu" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 10
