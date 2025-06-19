@@ -1,5 +1,6 @@
 extends Sprite2D
 @onready var game: Node2D = get_node('/root/game')
+#@export var which_item_to_spawn: String
 @onready var asteroid_scene = preload("res://scenes/asteroid.tscn")
 
 var of: Vector2 = Vector2.ZERO
@@ -8,6 +9,7 @@ var prevPos: Vector2
 var clickCounter: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	pass # Replace with function body.
 
 

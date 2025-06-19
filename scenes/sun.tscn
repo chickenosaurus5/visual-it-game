@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://cinpgnd1vyreq" path="res://assets/star.png" id="1_cojbh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdjia"]
-radius = 6192.89
+radius = 21721.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6gpmc"]
-radius = 64640.9
+radius = 137214.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdjia"]
 atlas = ExtResource("1_cojbh")
@@ -445,7 +445,7 @@ mass = 6e+06
 shape = SubResource("CircleShape2D_fdjia")
 
 [node name="Area2D" type="Area2D" parent="RigidBody2D"]
-gravity_space_override = 4
+gravity_space_override = 1
 gravity_point = true
 gravity_point_unit_distance = 1024.0
 gravity_point_center = Vector2(0, 0)
@@ -456,7 +456,8 @@ gravity = 3e+06
 shape = SubResource("CircleShape2D_6gpmc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
-scale = Vector2(122.92, 122.92)
+position = Vector2(0.00195313, -0.00195313)
+scale = Vector2(430.12, 430.12)
 sprite_frames = SubResource("SpriteFrames_vtvjq")
 animation = &"new_animation"
 autoplay = "new_animation"

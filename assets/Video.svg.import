@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqrxljshiwit3"
-path="res://.godot/imported/rocket.png-ee7caa6d60b8c73f0b17d79a887f39b7.ctex"
+uid="uid://dao61rojw37tk"
+path="res://.godot/imported/Video.svg-934b6e18e584ceaf3646a6ea25dbdcde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rocket.png"
-dest_files=["res://.godot/imported/rocket.png-ee7caa6d60b8c73f0b17d79a887f39b7.ctex"]
+source_file="res://assets/Video.svg"
+dest_files=["res://.godot/imported/Video.svg-934b6e18e584ceaf3646a6ea25dbdcde.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

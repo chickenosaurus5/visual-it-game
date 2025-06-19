@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drb1g6dsbw3so"
-path="res://.godot/imported/Search for objects here!.png-262a9ff3e953b7e0134e6dec1b6a2726.ctex"
+uid="uid://c5kui4ykjim2t"
+path="res://.godot/imported/objects_tab.png-d6242db07278f22cbe04b667e283f488.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp-test-menu/Search for objects here!.png"
-dest_files=["res://.godot/imported/Search for objects here!.png-262a9ff3e953b7e0134e6dec1b6a2726.ctex"]
+source_file="res://assets/objects_tab.png"
+dest_files=["res://.godot/imported/objects_tab.png-d6242db07278f22cbe04b667e283f488.ctex"]
 
 [params]
 

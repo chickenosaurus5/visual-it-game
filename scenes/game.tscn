@@ -1,28 +1,32 @@
-[gd_scene load_steps=25 format=3 uid="uid://dfe4gpbchdafk"]
+[gd_scene load_steps=29 format=3 uid="uid://dfe4gpbchdafk"]
 
 [ext_resource type="Script" uid="uid://cc7g0by8sjadx" path="res://scripts/single_object.gd" id="1_yqjtg"]
 [ext_resource type="Script" uid="uid://clde542pcqbk8" path="res://scripts/camera_2d.gd" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://dhx7s40g5uovd" path="res://assets/sky1.png" id="6_p57ef"]
-[ext_resource type="Theme" uid="uid://rng1buwub48f" path="res://assets/new_theme.tres" id="7_0tnpc"]
+[ext_resource type="Theme" uid="uid://rng1buwub48f" path="res://assets/panel_main_theme.tres" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://bpb82vxjylegb" path="res://assets/temp-test-menu/logo (3).png" id="7_1kice"]
 [ext_resource type="PackedScene" uid="uid://bsiqv6k3q8i12" path="res://scenes/planet_item.tscn" id="7_37s47"]
+[ext_resource type="PackedScene" uid="uid://7lw18dnml2nm" path="res://scenes/sun_item.tscn" id="7_e1j6l"]
 [ext_resource type="Texture2D" uid="uid://by58lk7bgrcid" path="res://assets/temp-test-menu/Rectangle 83.png" id="8_5newe"]
 [ext_resource type="PackedScene" uid="uid://b77q2s0e7mkmi" path="res://scenes/asteroid_item.tscn" id="8_37s47"]
 [ext_resource type="FontFile" uid="uid://oxnlpgwu7m3e" path="res://assets/fonts/Inter-VariableFont_opsz,wght.ttf" id="9_37s47"]
 [ext_resource type="Texture2D" uid="uid://u6hvuukdavaj" path="res://assets/temp-test-menu/icons8-magnifying-glass-128 (1) 3.png" id="10_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://d1oaxtg7wp6ux" path="res://assets/temp-test-menu/icons8-return-32 1.png" id="11_e1j6l"]
+[ext_resource type="Texture2D" uid="uid://dao61rojw37tk" path="res://assets/Video.svg" id="12_bhx41"]
 [ext_resource type="Texture2D" uid="uid://bn5ev1fmwqqa7" path="res://assets/temp-test-menu/icons8-return-32 2.png" id="12_pl11u"]
 [ext_resource type="Texture2D" uid="uid://dwx7kgpeokvi7" path="res://assets/temp-test-menu/icons8-3d-rotate-80 1.png" id="13_bhx41"]
 [ext_resource type="Texture2D" uid="uid://5pxuaflo8m8c" path="res://assets/temp-test-menu/icons8-rubber-50 1.png" id="14_qnb83"]
 [ext_resource type="Texture2D" uid="uid://b2wpwrqhobb5n" path="res://assets/temp-test-menu/icons8-drag-80 1.png" id="15_sww3w"]
 [ext_resource type="Texture2D" uid="uid://58gghvv5bqyc" path="res://assets/temp-test-menu/icons8-clock-64 1.png" id="16_suyxu"]
 [ext_resource type="Script" uid="uid://ceecmi2fuo5s4" path="res://scripts/h_slider.gd" id="17_sgl2t"]
-[ext_resource type="Texture2D" uid="uid://clnk7eahvat2h" path="res://assets/temp-test-menu/Polygon 6.png" id="18_qouja"]
+[ext_resource type="Script" uid="uid://dxundausu548d" path="res://scripts/globalCamera.gd" id="19_pl11u"]
 [ext_resource type="Texture2D" uid="uid://jcqbnv3nkg03" path="res://assets/temp-test-menu/icons8-cog-50 1.png" id="19_wljb1"]
 [ext_resource type="Texture2D" uid="uid://d1x2vrnwddtgi" path="res://assets/temp-test-menu/icons8-home-128 1.png" id="20_v2yb1"]
 [ext_resource type="PackedScene" uid="uid://ded1fqhi81r0k" path="res://scenes/planet.tscn" id="21_37s47"]
-[ext_resource type="PackedScene" uid="uid://k8ihbh8roai5" path="res://scenes/sun.tscn" id="22_37s47"]
 [ext_resource type="PackedScene" uid="uid://dead23nt0tlu8" path="res://scenes/rocket.tscn" id="22_bt5mj"]
+[ext_resource type="Script" uid="uid://buupm35rs5iw2" path="res://scripts/exit_script.gd" id="22_sww3w"]
+[ext_resource type="Texture2D" uid="uid://c5kui4ykjim2t" path="res://assets/objects_tab.png" id="23_bhx41"]
+[ext_resource type="Script" uid="uid://ce177ogygwu1i" path="res://scripts/objects_tab_cont_color_change.gd" id="23_qnb83"]
 
 [sub_resource type="GDScript" id="GDScript_js0lu"]
 script/source = "extends Button
@@ -55,7 +59,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 107.0
 offset_top = 91.0
-offset_right = 536.0
+offset_right = 486.0
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
@@ -63,15 +67,25 @@ mouse_filter = 2
 theme = ExtResource("7_0tnpc")
 theme_type_variation = &"sidebarTexture"
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/sidebar2"]
+[node name="planets" type="PanelContainer" parent="CanvasLayer/sidebar2"]
+visible = false
 layout_mode = 2
+size_flags_vertical = 0
 
-[node name="asteroidItem" parent="CanvasLayer/sidebar2/GridContainer" instance=ExtResource("8_37s47")]
+[node name="asteroidItem" parent="CanvasLayer/sidebar2/planets" instance=ExtResource("8_37s47")]
 position = Vector2(44, 62)
 scale = Vector2(2.16, 2.16)
 
-[node name="planet_item" parent="CanvasLayer/sidebar2/GridContainer" instance=ExtResource("7_37s47")]
+[node name="planet_item" parent="CanvasLayer/sidebar2/planets" instance=ExtResource("7_37s47")]
 position = Vector2(162, 62)
+
+[node name="sun_item" parent="CanvasLayer/sidebar2/planets" instance=ExtResource("7_e1j6l")]
+position = Vector2(301, 62)
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/sidebar2"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 
 [node name="topMenu" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 10
@@ -84,89 +98,9 @@ theme = ExtResource("7_0tnpc")
 layout_mode = 2
 alignment = 2
 
-[node name="rightHbox" type="HBoxContainer" parent="CanvasLayer/topMenu/mainHbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="undoZCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
-layout_mode = 2
-size_flags_horizontal = 8
-theme = ExtResource("7_0tnpc")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/undoZCont"]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_constants/margin_right = 19
-
-[node name="undoZicon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/undoZCont/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-texture = ExtResource("7_1kice")
-
-[node name="searchbarCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
-layout_mode = 2
-size_flags_horizontal = 8
-theme = ExtResource("7_0tnpc")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont"]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_constants/margin_top = 5
-
-[node name="searchbar" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("8_5newe")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 364.0
-offset_bottom = 41.0
-theme_override_constants/separation = 100
-alignment = 2
-
-[node name="undoZCont2" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-theme = ExtResource("7_0tnpc")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer/undoZCont2"]
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="searchText" type="Label" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer/undoZCont2/MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.521141, 0.521141, 0.521141, 1)
-theme_override_fonts/font = ExtResource("9_37s47")
-theme_override_font_sizes/font_size = 15
-text = "Search for Objects here"
-
-[node name="searchIconCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-theme = ExtResource("7_0tnpc")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer/searchIconCont"]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_constants/margin_left = 19
-theme_override_constants/margin_right = 19
-
-[node name="searchIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer/searchIconCont/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-texture = ExtResource("10_bt5mj")
-
 [node name="leftHbox" type="HBoxContainer" parent="CanvasLayer/topMenu/mainHbox"]
 layout_mode = 2
-theme_override_constants/separation = 0
+size_flags_horizontal = 3
 
 [node name="undoZCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
 layout_mode = 2
@@ -176,125 +110,205 @@ theme = ExtResource("7_0tnpc")
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/undoZCont"]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_constants/margin_left = 19
 theme_override_constants/margin_right = 19
 
 [node name="undoZicon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/undoZCont/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("11_e1j6l")
+texture = ExtResource("7_1kice")
 
-[node name="undoYCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+[node name="searchbarCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("7_0tnpc")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/undoYCont"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/searchbarCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = 5
+
+[node name="searchbar" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/searchbarCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_5newe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/searchbarCont/MarginContainer/searchbar"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 364.0
+offset_bottom = 41.0
+theme_override_constants/separation = 100
+alignment = 2
+
+[node name="undoZCont2" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("7_0tnpc")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer/undoZCont2"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="searchText" type="Label" parent="CanvasLayer/topMenu/mainHbox/leftHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer/undoZCont2/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.521141, 0.521141, 0.521141, 1)
+theme_override_fonts/font = ExtResource("9_37s47")
+theme_override_font_sizes/font_size = 15
+text = "Search for Objects here"
+
+[node name="searchIconCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("7_0tnpc")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer/searchIconCont"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_left = 19
 theme_override_constants/margin_right = 19
 
-[node name="undoYicon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/undoYCont/MarginContainer"]
+[node name="searchIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/searchbarCont/MarginContainer/searchbar/HBoxContainer/searchIconCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("10_bt5mj")
+
+[node name="rightHbox" type="HBoxContainer" parent="CanvasLayer/topMenu/mainHbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="undoZCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("7_0tnpc")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/undoZCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 19
+theme_override_constants/margin_right = 19
+
+[node name="undoZicon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/undoZCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("11_e1j6l")
+
+[node name="undoYCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("7_0tnpc")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/undoYCont"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 19
+theme_override_constants/margin_right = 19
+
+[node name="undoYicon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/undoYCont/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("12_pl11u")
 
-[node name="rotationICon" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+[node name="rotationICon" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("7_0tnpc")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/rotationICon"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/rotationICon"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_left = 19
 theme_override_constants/margin_right = 19
 
-[node name="rotateIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/rotationICon/MarginContainer"]
+[node name="rotateIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/rotationICon/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("13_bhx41")
 
-[node name="deleteCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+[node name="deleteCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("7_0tnpc")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/deleteCont"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/deleteCont"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_left = 19
 theme_override_constants/margin_right = 19
 
-[node name="deleteIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/deleteCont/MarginContainer"]
+[node name="deleteIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/deleteCont/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("14_qnb83")
 
-[node name="MoveCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+[node name="MoveCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("7_0tnpc")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/MoveCont"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/MoveCont"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_left = 19
 theme_override_constants/margin_right = 19
 
-[node name="moveIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/MoveCont/MarginContainer"]
+[node name="moveIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/MoveCont/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("15_sww3w")
 
-[node name="pauseTimerCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+[node name="pauseTimerCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("7_0tnpc")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/pauseTimerCont"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/pauseTimerCont"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_left = 19
 theme_override_constants/margin_right = 19
 
-[node name="clockIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/pauseTimerCont/MarginContainer"]
+[node name="clockIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/pauseTimerCont/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("16_suyxu")
 
-[node name="timeMultiplierCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+[node name="timeMultiplierCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("7_0tnpc")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/timeMultiplierCont"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/timeMultiplierCont"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_right = 19
 
-[node name="timeMultiplier" type="Label" parent="CanvasLayer/topMenu/mainHbox/leftHbox/timeMultiplierCont/MarginContainer"]
+[node name="timeMultiplier" type="Label" parent="CanvasLayer/topMenu/mainHbox/rightHbox/timeMultiplierCont/MarginContainer"]
 layout_mode = 2
 text = "1.0x"
 
-[node name="sliderCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+[node name="sliderCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7_0tnpc")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/sliderCont"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/sliderCont"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/margin_right = 150
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/topMenu/mainHbox/leftHbox/sliderCont"]
+[node name="HSlider" type="HSlider" parent="CanvasLayer/topMenu/mainHbox/rightHbox/sliderCont"]
 layout_mode = 2
 size_flags_vertical = 4
 max_value = 2.0
@@ -302,51 +316,51 @@ step = 0.001
 value = 1.0
 script = ExtResource("17_sgl2t")
 
-[node name="pauseCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+[node name="globalCameraCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("7_0tnpc")
+script = ExtResource("19_pl11u")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/pauseCont"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/globalCameraCont"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_left = 19
 theme_override_constants/margin_right = 19
 
-[node name="pauseIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/pauseCont/MarginContainer"]
+[node name="globalCamera" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/globalCameraCont/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("18_qouja")
+texture = ExtResource("12_bhx41")
 
-[node name="Button" type="Button" parent="CanvasLayer/topMenu/mainHbox/leftHbox/pauseCont/MarginContainer/pauseIcon"]
+[node name="Button" type="Button" parent="CanvasLayer/topMenu/mainHbox/rightHbox/globalCameraCont/MarginContainer/globalCamera"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = SubResource("GDScript_js0lu")
 
-[node name="settingsCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+[node name="settingsCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("7_0tnpc")
 theme_type_variation = &"bcont"
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/settingsCont"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/settingsCont"]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 12
 
-[node name="settingsIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/settingsCont/MarginContainer"]
+[node name="settingsIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/settingsCont/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("19_wljb1")
 
-[node name="Button" type="Button" parent="CanvasLayer/topMenu/mainHbox/leftHbox/settingsCont/MarginContainer/settingsIcon"]
+[node name="Button" type="Button" parent="CanvasLayer/topMenu/mainHbox/rightHbox/settingsCont/MarginContainer/settingsIcon"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -357,23 +371,28 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = SubResource("GDScript_js0lu")
 
-[node name="homeCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox"]
+[node name="homeCont" type="PanelContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("7_0tnpc")
 theme_type_variation = &"bcont"
+script = ExtResource("22_sww3w")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/leftHbox/homeCont"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/topMenu/mainHbox/rightHbox/homeCont"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_right = 12
 
-[node name="homeIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/leftHbox/homeCont/MarginContainer"]
+[node name="homeIcon" type="TextureRect" parent="CanvasLayer/topMenu/mainHbox/rightHbox/homeCont/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("20_v2yb1")
+
+[node name="exitButton" type="Button" parent="CanvasLayer/topMenu/mainHbox/rightHbox/homeCont"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 
 [node name="sidebar1" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 9
@@ -384,6 +403,31 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 theme = ExtResource("7_0tnpc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/sidebar1"]
+layout_mode = 2
+
+[node name="objectsTabCont" type="PanelContainer" parent="CanvasLayer/sidebar1/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_0tnpc")
+script = ExtResource("23_qnb83")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/sidebar1/VBoxContainer/objectsTabCont"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="objects" type="TextureRect" parent="CanvasLayer/sidebar1/VBoxContainer/objectsTabCont/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("23_bhx41")
+
+[node name="Button" type="Button" parent="CanvasLayer/sidebar1/VBoxContainer/objectsTabCont"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 
 [node name="rocketSpeed" type="Label" parent="CanvasLayer"]
 offset_left = 1371.0
@@ -397,7 +441,7 @@ position = Vector2(870, 2648)
 [node name="rocket" parent="." instance=ExtResource("22_bt5mj")]
 position = Vector2(870, 654)
 
-[node name="sun" parent="." instance=ExtResource("22_37s47")]
-position = Vector2(102577, 63710)
-
-[connection signal="value_changed" from="CanvasLayer/topMenu/mainHbox/leftHbox/sliderCont/HSlider" to="CanvasLayer/topMenu/mainHbox/leftHbox/sliderCont/HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/topMenu/mainHbox/rightHbox/sliderCont/HSlider" to="CanvasLayer/topMenu/mainHbox/rightHbox/sliderCont/HSlider" method="_on_value_changed"]
+[connection signal="pressed" from="CanvasLayer/topMenu/mainHbox/rightHbox/globalCameraCont/MarginContainer/globalCamera/Button" to="CanvasLayer/topMenu/mainHbox/rightHbox/globalCameraCont" method="_on_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/topMenu/mainHbox/rightHbox/homeCont/exitButton" to="CanvasLayer/topMenu/mainHbox/rightHbox/homeCont" method="_on_exit_button_button_down"]
+[connection signal="pressed" from="CanvasLayer/sidebar1/VBoxContainer/objectsTabCont/Button" to="CanvasLayer/sidebar1/VBoxContainer/objectsTabCont" method="_on_button_pressed"]

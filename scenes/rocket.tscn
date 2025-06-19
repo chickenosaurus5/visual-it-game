@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bts3hnwipoho0" path="res://scripts/directionVector.gd" id="4_y2y7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkv7l"]
-size = Vector2(140, 300)
+size = Vector2(23, 48)
 
 [node name="rocket" type="Node2D"]
 
@@ -14,12 +14,12 @@ size = Vector2(140, 300)
 script = ExtResource("1_dkv7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(4, -85)
+position = Vector2(0.5, -21)
 shape = SubResource("RectangleShape2D_dkv7l")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(20, -106)
-scale = Vector2(0.083496, 0.083496)
+position = Vector2(3, -24)
+scale = Vector2(0.0134277, 0.0134277)
 texture = ExtResource("2_agf72")
 
 [node name="rocketCamera" type="Camera2D" parent="RigidBody2D"]
@@ -29,3 +29,12 @@ script = ExtResource("3_agf72")
 
 [node name="Line2D" type="Line2D" parent="RigidBody2D"]
 script = ExtResource("4_y2y7n")
+
+[node name="cameraSwitcher" type="Button" parent="RigidBody2D"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -56.0
+offset_top = -109.0
+offset_right = 58.0
+offset_bottom = 51.0
+
+[connection signal="pressed" from="RigidBody2D/cameraSwitcher" to="RigidBody2D" method="_on_camera_switcher_pressed"]

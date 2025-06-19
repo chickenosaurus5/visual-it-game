@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://7lw18dnml2nm"]
+
+[ext_resource type="Texture2D" uid="uid://cinpgnd1vyreq" path="res://assets/star.png" id="1_4usir"]
+[ext_resource type="Script" uid="uid://c05iwm70t5506" path="res://scripts/sun_drag.gd" id="2_go0d6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdjia"]
+atlas = ExtResource("1_4usir")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nky4e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdjia")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[node name="sun_item" type="Node2D"]
+
+[node name="sunIcon" type="AnimatedSprite2D" parent="."]
+position = Vector2(7.62939e-06, 0)
+scale = Vector2(0.779999, 0.779999)
+sprite_frames = SubResource("SpriteFrames_nky4e")
+animation = &"new_animation"
+autoplay = "new_animation"
+script = ExtResource("2_go0d6")
+
+[node name="Button" type="Button" parent="sunIcon"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -49.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[connection signal="pressed" from="sunIcon/Button" to="sunIcon" method="_on_button_pressed"]

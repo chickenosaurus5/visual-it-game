@@ -13,14 +13,11 @@ var last_ticks = Time.get_ticks_usec()
 var real_delta: float
 
    
-	# Use `real_delta` instead of `delta`
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	zoomTarget = zoom
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	Zoom(delta)
 	var now = Time.get_ticks_usec()

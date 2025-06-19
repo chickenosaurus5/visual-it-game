@@ -4,7 +4,7 @@ var img
 var particles: Array[Array] = []
 @onready var circle_shape = CircleShape2D.new()
 @export var tex : Texture2D 
-@onready var marker_2d: Marker2D = $Marker2D
+
 
 
 func create_particle(pos: Vector2):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=67 format=3 uid="uid://ded1fqhi81r0k"]
 
-[ext_resource type="Texture2D" uid="uid://cyjdd81dj5mle" path="res://assets/2560023939.png" id="1_cktii"]
+[ext_resource type="Texture2D" uid="uid://cyjdd81dj5mle" path="res://assets/earth_like.png" id="1_cktii"]
 [ext_resource type="Texture2D" uid="uid://co0whhfbv5g58" path="res://assets/atmosphere1.png" id="2_h8ms6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ue0rt"]
@@ -461,7 +461,6 @@ shape = SubResource("CircleShape2D_156mk")
 scale = Vector2(39.28, 39.28)
 sprite_frames = SubResource("SpriteFrames_ojoc0")
 autoplay = "default"
-frame_progress = 0.501348
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 z_index = -1
